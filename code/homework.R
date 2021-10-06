@@ -50,6 +50,3 @@ funct_maxmin <- function(x){
 }
 
 funct_maxmin(seq(69, 420))
-funct_maxmin(runif(100, 69, 420))
-
-
