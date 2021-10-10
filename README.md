@@ -1,5 +1,7 @@
 # bioinformatics
 
+![RStudio banner image](RStudio-Logo-Flat.png)
+
 ## Repository purpose
 
 Repository for my bioinformatics work. Workshop data from [Chris Clements' GitHub](https://github.com/chrit88)
