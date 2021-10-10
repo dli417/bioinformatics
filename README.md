@@ -7,11 +7,13 @@ Repository for my bioinformatics work. Workshop data from [Chris Clements' GitHu
 ## What is in this repository
 
 - [`code/homework.R`](code/homework.R) - R script for week 1 homework
+- ['code/cheat_sheet.Rmd](code/cheat_sheet.Rmd) - Week 1 and 2 R Markdown cheat sheet
+
 - Workshop data
-  - [Workshop 3](#workshop-3) - brief description
-  - [Workshop 5](#workshop-5) - brief description
-  - [Workshop 6](#workshop-6) - brief description
-  - [Workshop 8](#workshop-8) - brief description
+  - [Workshop 3](#workshop-3) - COVID-19 cases
+  - [Workshop 5](#workshop-5) - Tokyo 2021 Olympic medals
+  - [Workshop 6](#workshop-6) - Simulation datasets
+  - [Workshop 8](#workshop-8) - Complex datasets, possibly related to ArcGIS?
 
 ### [Workshop 3](Workshop%203)
 
