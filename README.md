@@ -13,13 +13,13 @@ Repository for my bioinformatics work
   - [Workshop 6](#workshop-6) - brief description
   - [Workshop 8](#workshop-8) - brief description
 
-### Workshop 3
+### [Workshop 3](Workshop%203)
 
-### Workshop 5
+### [Workshop 5](Workshop%205)
 
-### Workshop 6
+### [Workshop 6](Workshop%206)
 
-### Workshop 8
+### [Workshop 8](Workshop%208)
 
 ## Workshop data sources
 
