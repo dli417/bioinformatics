@@ -14,25 +14,25 @@ Repository for my bioinformatics work. Workshop data from [Chris Clements' GitHu
   - [Workshop 6](#workshop-6) - Simulation datasets
   - [Workshop 8](#workshop-8) - Complex datasets, possibly related to ArcGIS?
 
-### [Workshop 3](Workshop%203)
+### [Workshop 3](data/Workshop%203)
 
 - time_series_covid19_deaths_global.csv
 - to_sort_pop_1.csv
 - to_sort_pop_2.csv
 - wader_data.csv
 
-### [Workshop 5](Workshop%205)
+### [Workshop 5](data/Workshop%205)
 
 - Tokyo 2021 medals.csv
 
-### [Workshop 6](Workshop%206)
+### [Workshop 6](data/Workshop%206)
 
 - data 1.csv
 - data 2.csv
 - data 3.csv
 - data 4.csv
 
-### [Workshop 8](Workshop%208)
+### [Workshop 8](data/Workshop%208)
 
 - GWW.laz
 - ne_110m_land.cpg
