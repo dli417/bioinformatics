@@ -1,6 +1,6 @@
 # bioinformatics
 
-![RStudio banner image](RStudio-Logo-Flat.png | width=2000)
+![RStudio banner image](RStudio-Logo-Flat.png)
 
 ## Repository purpose
 
