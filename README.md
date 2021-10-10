@@ -1,8 +1,8 @@
 # bioinformatics
 
 <!--![RStudio banner image](RStudio-Logo-Flat.png)-->
-<div align="center" width="100%">
-    <img src="./RStudio-Logo-Flat.png" width="500" alt="" />
+<div align="left" width="100%">
+    <img src="./RStudio-Logo-Flat.png" width="400" alt="" />
 </div>
 
 ## Repository purpose
