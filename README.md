@@ -8,6 +8,7 @@ Repository for my bioinformatics work. Workshop data from [Chris Clements' GitHu
 
 - [`code/homework.R`](code/homework.R) - R script for week 1 homework
 - [`code/cheat_sheet.Rmd`](code/cheat_sheet.Rmd) - Week 1 and 2 R Markdown cheat sheet
+  - [`code/cheat_sheet.html`](code/cheat_sheet.html) - Week 1 and 2 knitted HTML cheat sheet
 - Workshop data
   - [Workshop 3](#workshop-3) - COVID-19 cases
   - [Workshop 5](#workshop-5) - Tokyo 2021 Olympic medals
