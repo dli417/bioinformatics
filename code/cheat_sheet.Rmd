@@ -12,7 +12,7 @@ output:
 
 # Task
 
-Use RMarkdown to summarise the most important bits of what you have learned so far - i.e. make a sort of cheat sheet for yourself of useful functions or insights. This will be different for everyone, so I won’t tell you what to put on it but I do suggest you **include a table of useful functions** which you have come across during your reading.
+Use RMarkdown to summarise the most important bits of what you have learned so far - i.e. make a sort of cheat sheet for yourself of useful functions or insights. This will be different for everyone, so I won’t tell you what to put on it but I do suggest you include a table of useful functions which you have come across during your reading.
 
 # Useful functions
 
@@ -136,7 +136,7 @@ The version control aspect of Git means every change to the repository is record
 
 ### GitHub repository files
 
-- README.md - Provides information on the project. Document parsed as GitHub Flavored Markdown (GFM)
+- README.md - Provides information on the project. Document parsed as [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/)
 - .gitignore - Files and folders to exclude from upload to repository
 - .git folder - Folder containing information used by Git
 
