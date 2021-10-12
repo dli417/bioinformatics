@@ -1,4 +1,4 @@
-# bioinformatics
+# bioinformatics-R
 
 <div align="center" width="100%">
     <img src="./RStudio-Logo-Flat.png" width="400" alt="" />
@@ -6,7 +6,7 @@
 
 ## Repository purpose
 
-Repository for my bioinformatics work. Workshop data from [Chris Clements' GitHub](https://github.com/chrit88)
+Repository from my R bioinformatics course. Workshop data from [Chris Clements' GitHub](https://github.com/chrit88). Repository contents and README will be updated as the course progresses.
 
 ## What is in this repository
 
