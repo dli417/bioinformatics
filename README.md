@@ -1,4 +1,4 @@
-# bioinformatics-R
+# bioinformatics-r
 
 <div align="center" width="100%">
     <img src="./RStudio-Logo-Flat.png" width="400" alt="" />
