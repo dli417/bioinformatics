@@ -234,3 +234,127 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 wad_dat <- vroom("../../data/Workshop 3/wader_data.csv")
 
 head(wad_dat)
+
+covid_dat <- vroom("../../data/Workshop 3/time_series_covid19_deaths_global.csv")
+
+head(covid_dat)
+
+# 4.1.2 Loding from GitHub
+##use vroom to read in some data from github:
+covid_dat <- vroom("https://raw.githubusercontent.com/chrit88/Bioinformatics_data/master/Workshop%203/time_series_covid19_deaths_global.csv")
+
+# 4.1.2.1 Loading multiple files
+##you can ignore this code for the moment if you want
+##but to briefly summarise it is reading in some data included in base R
+##and then splitting it into 3 differnt data.frame style objects based on the values in one of the columns ("cyl")
+mt <- tibble::rownames_to_column(mtcars, "model")
+purrr::iwalk(
+  split(mt, mt$cyl),
+  ##save this split files in to the default directory
+  ~ vroom_write(.x, glue::glue("mtcars_{.y}.csv"), "\t")
+)
+mt
+
+##find files in the default directory which start with "mtcars" and end in "csv"
+##save these file names as an object called "files"
+files <- fs::dir_ls(glob = "mtcars*csv")
+
+##these are then the names of the files matching the above arguments:
+files
+
+##then load these file names using vroom
+vroom(files)
+
+# 4.2 RData
+##load in some RData
+load("my_data/pathway/my_data.RData")
+
+# 5 Writing data out of R
+# 5.1 .csv
+
+##write out a .csv file
+vroom_write(my_data, "a pathway/a data folder/the_name_of_my_data.csv")
+
+# 5.2 RData
+
+##write out my data as an RData file:
+save(my_data, file = "a pathway/a data folder/the_name_of_my_RData.RData")
+##write out my data as an RData file:
+save(my_data,
+     my_vector,
+     my_list,
+     my_array,
+     file = "a pathway/a data folder/the_name_of_my_RData.RData")
+
+# 6 Data handling
+
+# 6.1 Package options
+# 6.1.1 The tidyverse
+
+##install the tidyverse
+install.packages("tidyverse")
+
+##load the tidyverse
+library("tidyverse")
+
+# 6.1.2 Pipelines
+
+my_data %>% function_1() %>% function_2()
+
+# data.table
+
+
+# 6.2 Summarising data
+
+# run commands to import covid_dat and wad_dat, and load vroom and tidyverse
+
+##what class is the object
+class(covid_dat)
+
+##look at the data
+covid_dat
+
+##change the first two names of our data frame
+names(covid_dat)[1:2] <- c("Province.State", "Country.Region")
+
+# 6.3 Basic data reshaping with pivot_
+
+##so this says take our data frame called covid_dat
+covid_long <- covid_dat %>%
+                ##and then apply this function 
+                pivot_longer(cols = -c( Province.State, 
+                                        Country.Region, 
+                                        Lat, 
+                                        Long))
+
+covid_long
+
+##our data frame
+covid_long <- covid_dat %>%
+                ##and then apply this function 
+                pivot_longer(cols = -c(Province.State:Long),
+                             names_to = "Date",
+                             values_to = "Deaths")
+
+covid_long
+
+##change long to wide
+covid_long %>% 
+  pivot_wider(names_from = Date,
+              values_from = Deaths)
+
+covid_long
+
+# Key concepts
+# Matrices - 2 dimensions containing a single type of data
+# Arrays are n dimensional matrices containing a single type of data
+# data.frames (including tibble) can contain multiple data types
+# Lists - structures containing nested information of multiple types
+# Installing packages from CRAN via `install.packages(“package.name”)
+# Installing packages from Github via install_github("r-lib/vroom")
+# We can specify a function to be used from a certain package using the :: operator: vroom::vroom()
+# Load data into R using vroom() via direct pathways, or using a relative pathway
+# Load data from Github using vroom() and the data url
+# Creating pipelines via the magrittr operator %>%
+# Reshaping data from wide to long and long to wide using the pivot_ functions
+
