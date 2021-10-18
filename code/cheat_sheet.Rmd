@@ -207,9 +207,14 @@ fig.cap="x"       | Figure caption for plots
 
 Load packages in r setup script:
 
-```
+```{r setup, eval=FALSE}
 # Load tidyverse
-{r setup, include=FALSE}
 library(tidyverse)
-knitr::opts_chunk$set(echo = TRUE)
+```
+
+Write database to file:
+
+```{r, eval=FALSE}
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+vroom_write(to_sort_pop_total_long, "../week 3/to_sort_pop_total_long_left.csv")
 ```

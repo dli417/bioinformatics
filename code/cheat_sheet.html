@@ -733,10 +733,11 @@ output:
 </tbody>
 </table>
 <p>Load packages in r setup script:</p>
-<pre><code># Load tidyverse
-{r setup, include=FALSE}
-library(tidyverse)
-knitr::opts_chunk$set(echo = TRUE)</code></pre>
+<pre class="r"><code># Load tidyverse
+library(tidyverse)</code></pre>
+<p>Write database to file:</p>
+<pre class="r"><code>setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+vroom_write(to_sort_pop_total_long, &quot;../week 3/to_sort_pop_total_long_left.csv&quot;)</code></pre>
 </div>
 </div>
 </div>
