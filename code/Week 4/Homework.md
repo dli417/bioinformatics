@@ -3,21 +3,21 @@ Week 4 Homework
 Daniel Li
 25/10/2021
 
--   [1 Task](#task)
--   [2 Code](#code)
-    -   [2.1 Graph 1: Total abundance over
+-   [Task](#task)
+-   [Code](#code)
+    -   [Graph 1: Total abundance over
         time](#graph-1-total-abundance-over-time)
-    -   [2.2 Graph 2: Population 1 vs 2 total abundance over
+    -   [Graph 2: Population 1 vs 2 total abundance over
         time](#graph-2-population-1-vs-2-total-abundance-over-time)
-    -   [2.3 Graph 3: Bryum bornholmense abundance over
+    -   [Graph 3: Bryum bornholmense abundance over
         time](#graph-3-bryum-bornholmense-abundance-over-time)
 
-# 1 Task
+# Task
 
 Visualise time series data from last week’s (week 3) data set on
 abundances
 
-# 2 Code
+# Code
 
 Load packages
 
@@ -160,7 +160,7 @@ head(long_spp)
 #long_spp <- drop_na(long_spp)
 ```
 
-## 2.1 Graph 1: Total abundance over time
+## Graph 1: Total abundance over time
 
 ``` r
 # na.rm is superfluous as NAs already removed
@@ -219,7 +219,7 @@ document
 # dev.off()
 ```
 
-## 2.2 Graph 2: Population 1 vs 2 total abundance over time
+## Graph 2: Population 1 vs 2 total abundance over time
 
 Graphs generated for data overlayed and data on seperate graphs
 
@@ -273,7 +273,7 @@ abundance_population_year_gg + geom_line(aes(col = population)) +
 
 ![](Homework_files/figure-gfm/population-1-vs-2-2.png)<!-- -->
 
-## 2.3 Graph 3: Bryum bornholmense abundance over time
+## Graph 3: Bryum bornholmense abundance over time
 
 ``` r
 long_spp_bryum <- long_spp %>% filter(species == "Bryum bornholmense")
