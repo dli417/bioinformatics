@@ -1,0 +1,149 @@
+---
+title: "Week 4 Homework"
+author: "Daniel Li"
+date: "25/10/2021"
+output:
+  github_document:
+    toc: true
+    number_sections: true
+    toc_depth: 3
+---
+
+# Task
+
+Visualise time series data from last week's (week 3) data set on abundances
+
+# Code
+
+Load packages
+
+```{r}
+# Load packages
+library(vroom)
+library(tidyverse)
+library(lubridate)
+```
+
+Read in the data
+
+```{r}
+##read in the data
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+wide_spp.1 <- vroom("../../data/Workshop 3/to_sort_pop_1.csv")
+wide_spp.2 <- vroom("../../data/Workshop 3/to_sort_pop_2.csv")
+
+## code to reshape data
+## first join the data using full join - this will keep all of the columns
+long_spp <- full_join(wide_spp.1, wide_spp.2) %>%
+              ## pivot the joined data frame, using species, primary_threat, secondary_threat, tertiary_threat as ID columns
+              ## and using names-pattern to pull out the population number
+              ## and make a new column (called population) to store them in.
+              ##Drop the NAs.
+               pivot_longer(cols = -c(species,
+                                      primary_threat,
+                                      secondary_threat,
+                                      tertiary_threat),
+                            names_to = c("population", "date"),
+                            names_pattern = "(.*)_(.*)",
+                            values_drop_na = T,
+                            values_to = "abundance")
+```
+
+Fix data frame
+
+```{r}
+# convert date column from chr to date
+long_spp$date <- as_date(long_spp$date)
+head(long_spp)
+
+# remove NAs (commented out as NAs removed in full_join pivot earlier)
+#long_spp <- drop_na(long_spp)
+```
+
+## Graph 1: Total abundance over time
+
+```{r total-abundance-over-time}
+# na.rm is superfluous as NAs already removed
+abundance_year <- long_spp %>%
+            group_by(date) %>%
+            summarise("total.abundance" = sum(abundance, na.rm = T))
+head(abundance_year)
+
+abundance_year_gg <- ggplot(data = abundance_year, aes(x = date, y = total.abundance))
+
+# check to ensure we dont have any issues in the data (like NAs)
+which(is.na(abundance_year_gg$abundance))
+
+abundance_year_gg + geom_line(aes(col = total.abundance)) +
+                geom_point(aes(col = total.abundance)) +
+                ggtitle("Total abundance over time") +
+                theme(plot.title = element_text(hjust = 0.5)) +
+                xlab("Date") +
+                ylab("Total abundance") +
+                labs(col = "Total abundance")
+```
+
+No need to export graph to file as R Markdown knits graphs into finished document
+
+```{r, eval=FALSE}
+# # export graph to file
+# pdf("./Plots/homework/Total abundance over time.pdf", width = 6, height = 4)
+
+#     abundance_year_gg + geom_line(aes(col = total.abundance)) +
+#                         geom_point(aes(col = total.abundance)) +
+#                         ggtitle("Total abundance over time") +
+#                         theme(plot.title = element_text(hjust = 0.5)) +
+#                         xlab("Date") +
+#                         ylab("Total abundance") +
+#                         labs(col = "Total abundance")
+
+# dev.off()
+```
+
+## Graph 2: Population 1 vs 2 total abundance over time
+
+Graphs generated for data overlayed and data on seperate graphs
+
+```{r population-1-vs-2}
+abundance_population_year <- long_spp %>%
+            group_by(population, date) %>%
+            summarise("total.abundance" = sum(abundance, na.rm = T))
+head(abundance_population_year)
+
+abundance_population_year_gg <- ggplot(data = abundance_population_year, aes(x = date, y = total.abundance))
+abundance_population_year_gg + geom_line(aes(col = population)) +
+                                geom_point(aes(col = population)) +
+                                ggtitle("Total abundance by population") +
+                                theme(plot.title = element_text(hjust = 0.5)) +
+                                xlab("Date") +
+                                ylab("Total abundance") +
+                                labs(col = "Population")
+
+
+abundance_population_year_gg + geom_line(aes(col = population)) +
+                                geom_point(aes(col = population)) +
+                                ggtitle("Total abundance by population") +
+                                theme(plot.title = element_text(hjust = 0.5)) +
+                                xlab("Date") +
+                                ylab("Total abundance") +
+                                labs(col = "Population") +
+                                theme(legend.position = "none") +
+                                facet_wrap(. ~ population)
+```
+
+
+## Graph 3: Bryum bornholmense abundance over time
+
+```{r Bryum-bornholmense-abundance-over-time}
+long_spp_bryum <- long_spp %>% filter(species == "Bryum bornholmense")
+
+long_spp_bryum_gg <- ggplot(data = long_spp_bryum, aes(x = date, y = abundance))
+long_spp_bryum_gg + geom_line(aes(col = abundance)) +
+                        geom_point(aes(col = abundance)) +
+                        ggtitle("Total abundance of Brynum bornholmense") +
+                        theme(plot.title = element_text(hjust = 0.5)) +
+                        xlab("Date") +
+                        ylab("Abundance") +
+                        labs(col = "Abundance") +
+                        theme(legend.position = "none")
+```
