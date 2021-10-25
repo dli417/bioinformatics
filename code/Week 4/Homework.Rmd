@@ -4,8 +4,8 @@ author: "Daniel Li"
 date: "25/10/2021"
 output:
   github_document:
-    toc: true
     number_sections: true
+    toc: true
     toc_depth: 3
 ---
 
