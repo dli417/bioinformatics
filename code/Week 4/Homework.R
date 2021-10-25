@@ -115,7 +115,7 @@ long_spp_bryum_gg + geom_line(aes(col = abundance)) +
 bryum_all <- c("Bryum bornholmense", "Bryum gemmiferum", "Bryum klingraeffii", "Bryum rubens", "Bryum weigelii", "Paraleucobryum longifolium", "Thamnobryum alopecurum")
 
 
-long_spp_bryum_all_gg <- ggplot(data = long_spp_brynum %>%
+long_spp_bryum_all_gg <- ggplot(data = long_spp_bryum %>%
                                 filter(species %in% bryum_all),
                                 aes(x = date, y = abundance))
 long_spp_bryum_all_gg + geom_line(aes(col = abundance)) +
