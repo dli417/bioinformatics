@@ -1,5 +1,23 @@
 # Notes
 
+## Presentation
+
+- Normal distribution is the basis of most statistical techniques
+  - T test
+  - ANOVA
+  - Linear regression
+- Normal distribution defined by mean and standard deviation
+
+- Why more samples are important
+  - run code below and adjust sample number - higher samples show normal distribution more clearly
+
+```R
+hist(rnorm(420, mean = 161.6, sd = 8.8))
+```
+
+- Stats fit data to distribution
+- Then test how likely the data fit the distribution
+
 ## 1.4.1 Refresher on frequentest statistics
 
 Definitions:
