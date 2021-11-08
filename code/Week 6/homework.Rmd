@@ -1,0 +1,17 @@
+---
+title: "Homework"
+author: "Daniel Li"
+date: "08/11/2021"
+output:
+  github_document:
+    number_sections: false
+    toc: true
+    toc_depth: 3
+---
+
+# Part 1 - Tokyo Olympics
+
+
+
+
+# Part 2 - Iris with multiple predictors
