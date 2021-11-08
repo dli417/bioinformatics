@@ -80,6 +80,8 @@ ggplot(medal_gdp_sort, aes(x = GDP, y = Position)) +
 
 Fit an appropriate GLM to the data and check its assumptions
 
+```{r}
 
+```
 
 # Part 2 - Iris with multiple predictors
