@@ -4,8 +4,8 @@ library(tidyverse)
 library(vroom)
 library(wbstats)
 library(countrycode)
-# library(lubridate)
-# library(multcomp)
+#library(lubridate)
+#library(multcomp)
 
 
 # find out how to get GDP for the countries (hint - we have used the package in a previous week)
@@ -27,6 +27,7 @@ gdp_data <- as_tibble(gdp_data)
 
 # rename GDP column
 gdp_data <- gdp_data %>% rename(GDP = NY.GDP.MKTP.CD)
+#names(gdp_data)[5] <- "GDP"
 
 # merge the GDP data into the medal table (hint - check previous weeks for how to do this too)
 # import medal database
@@ -56,8 +57,22 @@ medal_gdp_sort <- arrange(medal_gdp_data,
 # Omit NA GDPs
 medal_gdp_sort <- medal_gdp_data[complete.cases(medal_gdp_data$GDP), ]
 
-ggplot(medal_gdp_sort, aes(x = GDP, y = Country)) +
-  geom_jitter(aes(col = GDP)) +
+# create position column
+medal_gdp_sort$Position <- seq.int(nrow(medal_gdp_sort))
+
+ggplot(medal_gdp_sort, aes(x = GDP, y = Position)) +
+  geom_point() +
   theme_bw()
+
+
+
+##look at a plot where the data are logged
+ggplot(medal_gdp_sort, aes(x = GDP, y = Position)) +
+  geom_point() +
+  scale_y_continuous(trans = "log10") +
+  scale_x_continuous(trans = "log10") +
+  theme_bw() +
+  ggtitle("Logged data")
+
 
 # fit an appropriate GLM to the data and check its assumptions
