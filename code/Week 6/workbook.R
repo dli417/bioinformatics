@@ -210,14 +210,25 @@ mod4 <- glm(abundance ~ standardised_time,
             family = gaussian(link = "inverse"))
 mod4
 
+# gamlr AIC method
+library(gamlr)
+
 ##compare the models
-AIC_mods <- AIC(mod1,
-                mod2,
-                mod3,
-                mod4)
+AIC_mods <- data.frame(model = c("mod1", "mod2", "mod3", "mod4"),
+                       AICc = c(AICc(mod1), AICc(mod2), AICc(mod3), AICc(mod4)))
 
 ## rank them by AIC using the order() function
-AIC_mods[order(AIC_mods$AIC),]
+AIC_mods[order(AIC_mods$AICc), ]
+
+# Alternative AIC method:
+# ##compare the models
+# AIC_mods <- AIC(mod1,
+#                 mod2,
+#                 mod3,
+#                 mod4)
+
+# ## rank them by AIC using the order() function
+# AIC_mods[order(AIC_mods$AIC),]
 
 # Produce the plot below, adapting the code we developed earlier to produce the plot with the fits and residuals for a gaissian distribution with a identity link.
 ##return the predicted (response) values from the model and add them to the single species tibble:
