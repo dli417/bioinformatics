@@ -8,4 +8,8 @@
     - i.e. binomial, poisson, gaussian
   - `fitdistrplus` package to help find possible model
   - Test using AIC which model fits data best
-  - 
+  - R package `bestNormalize`
+- When to stop
+  - models as generalisations are inherently different from actual data
+  - Judgement call based on model fitting the data well
+    - Provide proof
